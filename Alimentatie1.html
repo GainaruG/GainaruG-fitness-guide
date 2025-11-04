@@ -1,14 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="ro">
 <head>
   <meta charset="UTF-8">
-  <title>KING FITNESS</title>
+  <title>KING FITNESS - Alimentație</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="website icon" type="JPG" href="img/Inima.png">
+  <link rel="website icon" type="image/png" href="img/Inima.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body.Alimentatie {
+      background: linear-gradient(to bottom, #0e0e0e, #1c1c1c);
+      color: #f3f3f3;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .content {
+      max-width: 1100px;
+      margin: 120px auto 50px;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #f5b642;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px rgba(245, 182, 66, 0.4);
+    }
+
+    .section {
+      background: #222;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      margin-bottom: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .food-item {
+      background: #2a2a2a;
+      border-radius: 10px;
+      text-align: center;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      color: #fafafa;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    /* ✨ Efect de "respirație" la hover */
+    .food-item:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 0 20px rgba(245, 182, 66, 0.6);
+    }
+
+    .food-item img {
+      width: 100%;
+      border-radius: 10px;
+      height: 160px;
+      object-fit: cover;
+      margin-bottom: 10px;
+      transition: transform 0.4s ease;
+    }
+
+    .food-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .calories {
+      font-weight: bold;
+      color: #f5b642;
+    }
+
+    .tips {
+      font-size: 1.05em;
+      background: #181818;
+      padding: 15px;
+      border-left: 5px solid #f5b642;
+      border-radius: 8px;
+      margin-top: 20px;
+      color: #f8f8f8;
+    }
+
+    ul li {
+      margin: 8px 0;
+      color: #e7e7e7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      color: #d1d1d1;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
 
 <body class="Alimentatie">
+  <!-- ✅ Bara de sus identică cu originalul -->
   <section class="top-nav">
     <div>
       <a href="index.html" class="logo"><img src="img/Inima.png" alt="Logo"></a>
@@ -20,16 +116,11 @@
     <ul class="menu">
       <li class="has-dropdown">
         <a href="#"><i class="fas fa-dumbbell text-primary1"></i>Exercitii</a>
-        <ul class="submenu">
-          <a href="Slabire.html">Slabire</a>
-          <a href="Masificare.html">Masificare</a>
-        </ul>
+        <ul class="submenu"></ul>
       </li>
       <li class="has-dropdown">
         <a href="Alimentatie1.html"><i class="fas fa-utensils text-primary2"></i>Alimentatie</a>
-        
       </li>
-      
       <li class="has-dropdown">
         <a href="#"><i class="fas fa-folder-open"></i>Programā</a>
         <ul class="submenu">
@@ -42,11 +133,88 @@
       <li><a href="contact.html"><i class="fas fa-address-book text-primary4"></i>Contacte</a></li>
     </ul>
   </section>
+
+  <!-- ✅ Conținutul principal -->
+  <div class="content">
+    <h1>Alimentația în Fitness</h1>
+    <p style="text-align:center; max-width:800px; margin:0 auto; color:#e0e0e0;">
+      Alimentația corectă este esențială pentru rezultate în sală — fie că vrei masă musculară, tonifiere sau rezistență.
+      Momentul mesei și tipul de alimente sunt la fel de importante ca antrenamentul în sine.
+    </p>
+
+    <!-- Înainte de sală -->
+    <div class="section">
+      <h2>🍎 Înainte de antrenament</h2>
+      <div class="food-grid">
+        <div class="food-item">
+          <img src="img/ovaz.jpg" alt="Ovăz">
+          <h3>Ovăz + banană</h3>
+          <p>Energie lent eliberată, ideală pentru rezistență și concentrare.</p>
+          <p class="calories">≈ 250 kcal</p>
+        </div>
+        <div class="food-item">
+          <img src="img/pieptpui.jpg" alt="Piept de pui">
+          <h3>Piept de pui + orez brun</h3>
+          <p>Combinația clasică pentru forță și sațietate.</p>
+          <p class="calories">≈ 400 kcal</p>
+        </div>
+        <div class="food-item">
+          <img src="img/iaurt.jpg" alt="Iaurt grecesc">
+          <h3>Iaurt grecesc + miere</h3>
+          <p>Proteină ușoară și energie rapidă pentru performanță.</p>
+          <p class="calories">≈ 200 kcal</p>
+        </div>
+      </div>
+      <div class="tips">
+        <i class="fas fa-lightbulb"></i> Consumă o masă echilibrată cu 1-2 ore înainte de sală și evită grăsimile grele.
+      </div>
+    </div>
+
+    <!-- După sală -->
+    <div class="section">
+      <h2>🍗 După antrenament</h2>
+      <div class="food-grid">
+        <div class="food-item">
+          <img src="img/shake.jpg" alt="Shake proteic">
+          <h3>Shake proteic cu banană</h3>
+          <p>Refacerea rapidă a mușchilor și a rezervelor de energie.</p>
+          <p class="calories">≈ 300 kcal</p>
+        </div>
+        <div class="food-item">
+          <img src="img/somon.jpg" alt="Somon">
+          <h3>Somon + legume verzi</h3>
+          <p>Grăsimi sănătoase și proteine pentru regenerare.</p>
+          <p class="calories">≈ 450 kcal</p>
+        </div>
+        <div class="food-item">
+          <img src="img/oua.jpg" alt="Ouă fierte">
+          <h3>Ouă fierte + avocado</h3>
+          <p>Vitamine, proteine și grăsimi sănătoase pentru refacere.</p>
+          <p class="calories">≈ 350 kcal</p>
+        </div>
+      </div>
+      <div class="tips">
+        <i class="fas fa-info-circle"></i> Ideal este să mănânci în primele 30-45 de minute după antrenament.
+      </div>
+    </div>
+
+    <!-- Sfaturi -->
+    <div class="section">
+      <h2>🔥 Sfaturi generale pentru alimentație</h2>
+      <ul style="font-size:1.05em;">
+        <li>Bea 2-3 litri de apă zilnic.</li>
+        <li>Evită zahărul procesat și băuturile carbogazoase.</li>
+        <li>Include grăsimi bune (avocado, ulei de măsline, pește).</li>
+        <li>Respectă mesele principale și nu sări peste mic dejun.</li>
+        <li>Dormi cel puțin 7 ore pentru o recuperare completă.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+
+  </footer>
+
   <script src="main.js"></script>
 </body>
 </html>
-
-
-
-
-
