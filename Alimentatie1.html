@@ -52,9 +52,10 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
       color: #fafafa;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+      overflow: visible;
     }
 
-    /* ✨ Efect de "respirație" la hover */
     .food-item:hover {
       transform: translateY(-8px) scale(1.03);
       box-shadow: 0 0 20px rgba(245, 182, 66, 0.6);
@@ -67,6 +68,8 @@
       object-fit: cover;
       margin-bottom: 10px;
       transition: transform 0.4s ease;
+      display: block;
+      pointer-events: none; 
     }
 
     .food-item:hover img {
@@ -100,11 +103,57 @@
       color: #d1d1d1;
       font-size: 0.9em;
     }
+
+   /* 🔹 Steluța de favorite */
+.fav-star {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 1.6em;
+  color: rgba(255, 255, 255, 0.85); /* alb inițial */
+  cursor: pointer;
+  z-index: 20;
+  transition: color 0.25s ease, transform 0.18s ease, box-shadow 0.2s;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.fav-star:hover {
+  transform: scale(1.15);
+  color: #FFD700; /* galben complet la hover */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.45);
+  background: rgba(255, 215, 0, 0.15); /* ușor galben în spate la hover */
+}
+
+/* când e selectată (favorită) */
+.fav-star.active {
+  color: #FFD700; 
+  text-shadow: 0 0 10px rgb(255, 217, 0);
+  background: rgb(255, 230, 0);
+  box-shadow: 0 0 14px rgb(255, 217, 0);
+}
+
+/* mică animație când devine favorit */
+@keyframes pulseFav {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+.fav-star.pulse {
+  animation: pulseFav 360ms ease;
+}
+
+
   </style>
 </head>
 
 <body class="Alimentatie">
-  <!-- ✅ Bara de sus identică cu originalul -->
+  <!-- Bara de sus (păstrată) -->
   <section class="top-nav">
     <div>
       <a href="index.html" class="logo"><img src="img/Inima.png" alt="Logo"></a>
@@ -126,7 +175,6 @@
         <ul class="submenu">
           <a href="incepator.html">Incepator</a>
           <a href="Amator.html">Amator</a>
-          <a href="Profesionis.html">Profesionis</a>
         </ul>
       </li>
       <li><a href="desprenoi.html"><i class="fas fa-info-circle"></i>Despre noi</a></li>
@@ -134,7 +182,7 @@
     </ul>
   </section>
 
-  <!-- ✅ Conținutul principal -->
+  <!-- Conținut -->
   <div class="content">
     <h1>Alimentația în Fitness</h1>
     <p style="text-align:center; max-width:800px; margin:0 auto; color:#e0e0e0;">
@@ -145,26 +193,32 @@
     <!-- Înainte de sală -->
     <div class="section">
       <h2>🍎 Înainte de antrenament</h2>
-      <div class="food-grid">
-        <div class="food-item">
+      <div class="food-grid" id="grid-before">
+        <div class="food-item" data-id="ovaz">
+          <div class="fav-star" title="Adaugă la favorite"><i class="fas fa-star"></i></div>
           <img src="img/ovaz.jpg" alt="Ovăz">
           <h3>Ovăz + banană</h3>
           <p>Energie lent eliberată, ideală pentru rezistență și concentrare.</p>
           <p class="calories">≈ 250 kcal</p>
         </div>
-        <div class="food-item">
+
+        <div class="food-item" data-id="pui">
+          <div class="fav-star" title="Adaugă la favorite"><i class="fas fa-star"></i></div>
           <img src="img/pieptpui.jpg" alt="Piept de pui">
           <h3>Piept de pui + orez brun</h3>
           <p>Combinația clasică pentru forță și sațietate.</p>
           <p class="calories">≈ 400 kcal</p>
         </div>
-        <div class="food-item">
+
+        <div class="food-item" data-id="iaurt">
+          <div class="fav-star" title="Adaugă la favorite"><i class="fas fa-star"></i></div>
           <img src="img/iaurt.jpg" alt="Iaurt grecesc">
           <h3>Iaurt grecesc + miere</h3>
           <p>Proteină ușoară și energie rapidă pentru performanță.</p>
           <p class="calories">≈ 200 kcal</p>
         </div>
       </div>
+
       <div class="tips">
         <i class="fas fa-lightbulb"></i> Consumă o masă echilibrată cu 1-2 ore înainte de sală și evită grăsimile grele.
       </div>
@@ -173,26 +227,32 @@
     <!-- După sală -->
     <div class="section">
       <h2>🍗 După antrenament</h2>
-      <div class="food-grid">
-        <div class="food-item">
+      <div class="food-grid" id="grid-after">
+        <div class="food-item" data-id="shake">
+          <div class="fav-star" title="Adaugă la favorite"><i class="fas fa-star"></i></div>
           <img src="img/shake.jpg" alt="Shake proteic">
           <h3>Shake proteic cu banană</h3>
           <p>Refacerea rapidă a mușchilor și a rezervelor de energie.</p>
           <p class="calories">≈ 300 kcal</p>
         </div>
-        <div class="food-item">
+
+        <div class="food-item" data-id="somon">
+          <div class="fav-star" title="Adaugă la favorite"><i class="fas fa-star"></i></div>
           <img src="img/somon.jpg" alt="Somon">
           <h3>Somon + legume verzi</h3>
           <p>Grăsimi sănătoase și proteine pentru regenerare.</p>
           <p class="calories">≈ 450 kcal</p>
         </div>
-        <div class="food-item">
+
+        <div class="food-item" data-id="oua">
+          <div class="fav-star" title="Adaugă la favorite"><i class="fas fa-star"></i></div>
           <img src="img/oua.jpg" alt="Ouă fierte">
           <h3>Ouă fierte + avocado</h3>
           <p>Vitamine, proteine și grăsimi sănătoase pentru refacere.</p>
           <p class="calories">≈ 350 kcal</p>
         </div>
       </div>
+
       <div class="tips">
         <i class="fas fa-info-circle"></i> Ideal este să mănânci în primele 30-45 de minute după antrenament.
       </div>
@@ -212,9 +272,123 @@
   </div>
 
   <footer>
-
+    <p>&copy; 2025 KING FITNESS. Toate drepturile rezervate.</p>
   </footer>
 
-  <script src="main.js"></script>
+  <!-- Script: gestionează favoritele (persistență + reordonare) -->
+  <script>
+    (function () {
+      const STORAGE_KEY = 'kf_favorite_order'; // cheia în localStorage
+
+      // Citește lista de favorite (array de id-uri, în ordinea preferințelor)
+      function loadFavorites() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          return raw ? JSON.parse(raw) : [];
+        } catch {
+          return [];
+        }
+      }
+
+      // Salvează lista
+      function saveFavorites(list) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+      }
+
+      // Reordonează o grilă astfel încât item-urile favorite (dacă apar în grilă)
+      // să fie puse primele, în ordinea din savedFavorites. Restul rămân în ordinea DOM-ului original.
+      function reorderGrid(grid, savedFavorites) {
+        const children = Array.from(grid.querySelectorAll('.food-item'));
+        // map id -> element
+        const map = new Map(children.map(c => [c.dataset.id, c]));
+
+        // build new order: favorites that exist in this grid (in savedFavorites order)
+        const favElements = [];
+        for (const id of savedFavorites) {
+          if (map.has(id)) {
+            favElements.push(map.get(id));
+            map.delete(id);
+          }
+        }
+
+        // remaining elements in their current DOM order
+        const remaining = Array.from(map.values());
+
+        // append in order: favElements then remaining
+        // To minimize reflows: create DocumentFragment
+        const frag = document.createDocumentFragment();
+        favElements.forEach(el => frag.appendChild(el));
+        remaining.forEach(el => frag.appendChild(el));
+
+        grid.appendChild(frag);
+      }
+
+      // Initialize: mark stars active and reorder both grids
+      function init() {
+        const saved = loadFavorites();
+        // reorder both grids
+        document.querySelectorAll('.food-grid').forEach(grid => reorderGrid(grid, saved));
+
+        // set active class on stars for saved favorites
+        document.querySelectorAll('.food-item').forEach(item => {
+          const id = item.dataset.id;
+          const star = item.querySelector('.fav-star');
+          if (!star) return;
+          if (saved.includes(id)) {
+            star.classList.add('active');
+          } else {
+            star.classList.remove('active');
+          }
+        });
+      }
+
+      // Toggle favorite for an id: if exists remove, else add to front
+      function toggleFavorite(id) {
+        const saved = loadFavorites();
+        const idx = saved.indexOf(id);
+        if (idx > -1) {
+          // remove
+          saved.splice(idx, 1);
+        } else {
+          // add to front (becomes highest priority)
+          saved.unshift(id);
+        }
+        saveFavorites(saved);
+        return saved;
+      }
+
+      // set event listeners
+      function bind() {
+        document.querySelectorAll('.fav-star').forEach(star => {
+          star.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const item = star.closest('.food-item');
+            if (!item) return;
+            const id = item.dataset.id;
+            // pulse animation
+            star.classList.add('pulse');
+            setTimeout(() => star.classList.remove('pulse'), 380);
+
+            const newSaved = toggleFavorite(id);
+
+            // update active classes for all stars (quick)
+            document.querySelectorAll('.food-item').forEach(it => {
+              const s = it.querySelector('.fav-star');
+              if (!s) return;
+              if (newSaved.includes(it.dataset.id)) s.classList.add('active');
+              else s.classList.remove('active');
+            });
+
+            // reorder each grid (favorites first in saved order)
+            document.querySelectorAll('.food-grid').forEach(grid => reorderGrid(grid, newSaved));
+          });
+        });
+      }
+
+      // run
+      init();
+      bind();
+    })();
+  </script>
 </body>
 </html>
