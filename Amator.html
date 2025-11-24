@@ -45,63 +45,182 @@
   
   <div class="Amator">
     <dic class="main">
+ <style>
+    :root {
+      --bg: #0e0e0e;
+      --text: #f3f3f3;
+      --accent: #f5b642;
+      --section-bg: #222;
+    }
+
+    body.light-mode {
+      --bg: #f6f6f6;
+      --text: #111;
+      --accent: #c87b07;
+      --section-bg: #fff;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.5s ease, color 0.5s ease;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3 {
+      color: var(--accent);
+      transition: color 0.5s ease;
+    }
+
+    .theme-btn {
+      background: none;
+      border: none;
+      color: var(--accent);
+      cursor: pointer;
+      font-size: 1.3em;
+      margin-left: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .theme-btn:hover {
+      color: #fff;
+    }
+
+    .servicii-col, .servicii-col1 {
+      background: var(--section-bg);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      transition: background 0.5s ease;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      padding: 40px 20px 10px;
+    }
+
+    .subtext {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body class="pagina1">
+  <section class="top-nav">
+    <div>
+      <a href="index.html" class="logo"><img src="img/Inima.png" alt="Logo"></a>
+    </div>
+
+    <input id="menu-toggle" type="checkbox" />
+    <label class='menu-button-container' for="menu-toggle">
+      <div class='menu-button'></div>
+    </label>
+
+    <ul class="menu">
+      <li class="has-dropdown">
+        <a href="Exercitii.html"><i class="fas fa-dumbbell text-primary1"></i>Exercitii</a>
+        <ul class="submenu"></ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="Alimentatie1.html"><i class="fas fa-utensils text-primary2"></i>Alimentație</a>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="#"><i class="fas fa-folder-open"></i>Programă</a>
+        <ul class="submenu">
+          <a href="incepator.html">Începător</a>
+          <a href="Amator.html">Amator</a>
+        </ul>
+      </li>
+      <li><a href="desprenoi.html"><i class="fas fa-info-circle"></i>Despre noi</a></li>
+      <li><a href="contact.html"><i class="fas fa-address-book text-primary4"></i>Contacte</a></li>
+
+      <li><button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button></li>
+    </ul>
+  </section>
+  
+  <header class="header">
+    <h1>Program Amator</h1>
+    <p>Pentru cei care au deja o bază și vor un pas mai sus.</p>
+    <p class="subtext">Programul de amator crește treptat intensitatea și volumul, ajutându-te să dezvolți masă musculară și rezistență.</p>
+  </header>
+
+  <div class="row">
+    <div class="servicii-col">
+      <h3>Ziua 1 – Piept &amp; Triceps</h3>
       <p>
-        <h1 class="a">Program de Antrenament pentru Amatori(Barbati)</h1>
-      <h2 class="a">Ziua 1: Antrenament pentru piept și triceps</h2>
-        <ol>
-          <li> Bancă plano: 4 seturi x 8-10 repetări</li>
-          <li> Flotări: 3 seturi x maximul de repetări (sau flotări cu genunchii pe podea)</li>
-          <li> Flotări la aparat: 3 seturi x 10-12 repetări</li>
-          <li> Presa la bancă orizontală cu gantere: 3 seturi x 10-12 repetări</li>
-          <li> Extensii triceps cu bară EZ: 3 seturi x 8-10 repetări</li>
-          <li> Extensii triceps cu cablu cu prindere V: 3 seturi x 10-12 repetări</li>
-        </ol>
-         <h2 class="a">Ziua 2: Antrenament pentru spate și biceps</h2>
-         <ol>
-          <li>1. Tracțiuni la bară fixă sau cu priză inversă: 4 seturi x maximul de repetări</li>
-          <li>2. Pulldown la aparat cu priză largă: 3 seturi x 10-12 repetări</li>
-          <li>3. Rămășițe cu gantere: 3 seturi x 10-12 repetări</li>
-          <li>4. Bară pentru biceps cu gantere: 3 seturi x 8-10 repetări</li>
-          <li>5. Flexii la cablu cu prindere V pentru biceps: 3 seturi x 10-12 repetări</li>
-        </ol>
-        <h2 class="a">Ziua 3: Odihnă</h2>
-        <h2 class="a">Ziua 4: Antrenament pentru picioare</h2>
-        <ol>
-          <li>Presa pentru picioare: 4 seturi x 8-10 repetări</li>
-          <li>Extensii pentru picioare: 3 seturi x 10-12 repetări</li>
-          <li>Genuflexiuni cu bara: 3 seturi x 8-10 repetări</li>
-          <li>Genuflexiuni hack sau lungi: 3 seturi x 10-12 repetări</li>
-          <li>Lunges cu gantere: 3 seturi x 10-12 repetări</li>
-          <li>Flexii pentru gambe la aparat: 4 seturi x 12-15 repetări</li>
-        </ol>
-        <h2 class="a"> Ziua 5: Antrenament pentru umeri</h2>
-        <ol>
-          <li>Ridicări laterale cu gantere: 4 seturi x 10-12 repetări</li>
-          <li>Press militar cu gantere sau la aparat: 3 seturi x 8-10 repetări</li>
-          <li>Ridicări frontale cu gantere: 3 seturi x 10-12 repetări</li>
-          <li>Flotări pentru umeri cu gantere: 3 seturi x 10-12 repetări</li>
-          <li>Shrugs cu gantere sau la aparat: 4 seturi x 10-12 repetări</li>
-        </ol>
-<h2 class="a"> Ziua 6: Odihnă</h2>    
-<h2 class="a"> Ziua 7: Antrenament pentru brațe</h2>  
-<ol>
-  <li>Biceps: Bară EZ curl sau biceps cu gantere: 4 seturi x 8-10 repetări</li>
-  <li>Triceps: Extensii triceps la cablu cu bară V: 4 seturi x 10-12 repetări</li>
-  <li>Biceps: Flexii concentrat cu gantere: 3 seturi x 10-12 repetări</li>
-  <li>Triceps: Presă triceps cu bară sau la aparat: 3 seturi x 8-10 repetări</li>
-  <li>Biceps: Flexii la cablu cu prindere inversă: 3 seturi x 10-12 repetări</li>
-  <li>Triceps: Extensii triceps cu gantere: 3 seturi x 10-12 repetări</li>
-</ol>
-
+        • Încălzire: 5–10 minute bandă / bicicletă<br>
+        • Împins la piept cu bară – 4×8–10<br>
+        • Împins înclinat cu gantere – 3×10–12<br>
+        • Flotări – 3×maxim<br>
+        • Împins la triceps la helcometru – 3×10–12<br>
+        • Întinderi triceps deasupra capului – 2×12
       </p>
+    </div>
 
-    
-    </dic>
+    <div class="servicii-col">
+      <h3>Ziua 2 – Spate &amp; Biceps</h3>
+      <p>
+        • Tracțiuni la bară sau helcometru – 4×6–10<br>
+        • Ramat cu bară / ganteră – 4×8–10<br>
+        • Ramat la aparat – 3×10–12<br>
+        • Flexii biceps cu bară – 3×8–10<br>
+        • Flexii concentrate – 3×10–12<br>
+        • Abdomen: crunch-uri 3×15–20
+      </p>
+    </div>
+
+    <div class="servicii-col">
+      <h3>Ziua 3 – Picioare &amp; Umeri</h3>
+      <p>
+        • Genuflexiuni cu bară – 4×8–10<br>
+        • Presă pentru picioare – 3×10–12<br>
+        • Ridicări pe vârfuri (gambe) – 4×15<br>
+        • Presă umeri cu gantere – 3×8–10<br>
+        • Ridicări laterale – 3×12<br>
+        • Ridicări frontale – 2×12
+      </p>
+    </div>
+
+    <div class="servicii-col1">
+      <h3>Structura săptămânii &amp; Sfaturi</h3>
+      <p>
+        • Antrenament de <b>3–4 ori pe săptămână</b> (ex: Luni, Miercuri, Vineri, Sâmbătă).<br>
+        • Crește greutățile treptat, doar dacă execuția este corectă.<br>
+        • Păstrează pauze de 60–90 secunde între serii.<br>
+        • Combină programul cu o alimentație bogată în proteine și somn 7–8 ore.<br>
+        • Notează-ți progresul (greutăți, repetări) pentru a vedea evoluția.
+      </p>
+    </div>
   </div>
+
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-mode');
+      toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      const isLight = document.body.classList.contains('light-mode');
+      toggleBtn.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
