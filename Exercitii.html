@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Exerciții - MuscleForge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/jpg" href="img/Inima.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #0e0e0e;
+      --text: #f3f3f3;
+      --accent: #f5b642;
+      --section-bg: #222;
+    }
+
+    body.light-mode {
+      --bg: #f6f6f6;
+      --text: #111;
+      --accent: #c87b07;
+      --section-bg: #fff;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.5s ease, color 0.5s ease;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3 {
+      color: var(--accent);
+      transition: color 0.5s ease;
+    }
+
+    .exercise-box {
+      background: var(--section-bg);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      transition: background 0.5s ease;
+    }
+
+    .exercise-box img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .exercise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .theme-btn {
+      background: none;
+      border: none;
+      color: var(--accent);
+      cursor: pointer;
+      font-size: 1.3em;
+      margin-left: 10px;
+      transition: color 0.3s ease;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR IDENTIC CU INDEX -->
+  <section class="top-nav">
+    <div>
+      <a href="index.html" class="logo"><img src="img/Inima.png" alt="Logo"></a>
+    </div>
+
+    <input id="menu-toggle" type="checkbox" />
+    <label class='menu-button-container' for="menu-toggle">
+      <div class='menu-button'></div>
+    </label>
+
+    <ul class="menu">
+      <li><a href="Exercitii.html"><i class="fas fa-dumbbell"></i> Exerciții</a></li>
+      <li><a href="Alimentatie1.html"><i class="fas fa-utensils"></i> Alimentație</a></li>
+      <li class="has-dropdown">
+        <a href="#"><i class="fas fa-folder-open"></i> Programă</a>
+        <ul class="submenu">
+          <a href="incepator.html">Începător</a>
+          <a href="Amator.html">Amator</a>
+        </ul>
+      </li>
+      <li><a href="desprenoi.html"><i class="fas fa-info-circle"></i> Despre noi</a></li>
+      <li><a href="contact.html"><i class="fas fa-address-book"></i> Contacte</a></li>
+
+      <li><button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button></li>
+    </ul>
+  </section>
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1>Exerciții pentru toate grupele musculare</h1>
+    <p>Alege exercițiile potrivite pentru obiectivele tale.</p>
+  </header>
+
+  <!-- GRID CU EXERCITII -->
+  <div class="exercise-grid">
+
+    <div class="exercise-box">
+      <h3>Genuflexiuni</h3>
+      <p>Exercițiu excelent pentru picioare, fesieri și abdomen.</p>
+      <img src="img/ex1.jpg" alt="Genuflexiuni">
+    </div>
+
+    <div class="exercise-box">
+      <h3>Împins la piept (Bench Press)</h3>
+      <p>Antrenează pieptul, umerii și tricepșii.</p>
+      <img src="img/ex2.jpg" alt="Bench press">
+    </div>
+
+    <div class="exercise-box">
+      <h3>Ridicări de greutăți (Deadlift)</h3>
+      <p>Lucrează spatele, picioarele și zona lombară.</p>
+      <img src="img/ex3.jpg" alt="Deadlift">
+    </div>
+
+    <div class="exercise-box">
+      <h3>Tracțiuni</h3>
+      <p>Un exercițiu complet pentru spate și bicepși.</p>
+      <img src="img/ex4.jpg" alt="Tracțiuni">
+    </div>
+
+    <div class="exercise-box">
+      <h3>Fandări</h3>
+      <p>Tonifiază picioarele și îmbunătățește echilibrul.</p>
+      <img src="img/ex5.jpg" alt="Fandări">
+    </div>
+
+    <div class="exercise-box">
+      <h3>Abdomene</h3>
+      <p>Întăresc mușchii abdominali și zona core.</p>
+      <img src="img/ex6.jpg" alt="Abdomene">
+    </div>
+
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-mode');
+      toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      const isLight = document.body.classList.contains('light-mode');
+      toggleBtn.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+
+</body>
+</html>
