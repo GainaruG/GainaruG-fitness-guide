@@ -394,3 +394,63 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }, false);
 })
+
+function renderIndexPage() {
+    const root = document.getElementById('root');
+    if (!root) return; 
+    const content = {
+        header: {
+            title: "Welcome to MuscleForge",
+            p1: "În sala de sport, efortul devine forță, iar durerea se transformă în putere.",
+            p2: "Site-ul oferă informații și resurse pentru pasionații de fitness."
+        },
+        servicii: [
+            { clasa: "servicii-col", titlu: "Alimentație", text: "Descoperă sfaturi nutriționale și planuri de masă echilibrate pentru performanță maximă." },
+            { clasa: "servicii-col", titlu: "Câștigă masă musculară", text: "Consumă calorii sănătoase, proteine și carbohidrați, menține echilibrul între antrenament și odihnă." },
+            { clasa: "servicii-col", titlu: "Arderea caloriilor", text: "Rutine de exerciții concepute pentru a maximiza arderea caloriilor." },
+            { clasa: "servicii-col1", titlu: "Exerciții", text: "Concentrează-te pe exerciții de rezistență precum ridicările și genuflexiunile." }
+        ]
+    };
+
+    root.innerHTML = `
+        <section class="top-nav">
+            <div>
+                <a href="index.html" class="logo"><img src="img/Inima.png" alt="Logo"></a>
+            </div>
+            <input id="menu-toggle" type="checkbox" />
+            <label class='menu-button-container' for="menu-toggle"><div class='menu-button'></div></label>
+            <ul class="menu">
+                <li><a href="Exercitii.html"><i class="fas fa-dumbbell"></i> Exercitii</a></li>
+                <li><a href="Alimentatie1.html"><i class="fas fa-utensils"></i> Alimentație</a></li>
+                <li class="has-dropdown">
+                    <a href="#"><i class="fas fa-folder-open"></i> Programă</a>
+                    <ul class="submenu">
+                        <li><a href="incepator.html">Începător</a></li>
+                        <li><a href="Amator.html">Amator</a></li>
+                    </ul>
+                </li>
+                <li><a href="desprenoi.html"><i class="fas fa-info-circle"></i> Despre noi</a></li>
+                <li><a href="contact.html"><i class="fas fa-address-book"></i> Contacte</a></li>
+                <li><button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button></li>
+            </ul>
+        </section>
+
+        <header class="header">
+            <h1>${content.header.title}</h1>
+            <p>${content.header.p1}</p>
+            <p>${content.header.p2}</p>
+        </header>
+
+        <div class="row">
+            ${content.servicii.map(s => `
+                <div class="${s.clasa}">
+                    <h3>${s.titlu}</h3>
+                    <p>${s.text}</p>
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
+
+renderIndexPage();
